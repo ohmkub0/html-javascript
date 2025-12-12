@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html and Javascript</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.min.css">    
+     <script type="text/Javascript" src="jquery-3.7.1.js"></script>
+    <script type="text/Javascript">
+        $(function(){
+        $("a#demo").click(function(){
+            var ret = confirm("are you okay");
+            if(ret == true){
+                alert("ok");
+            }else{alert("noooooo")}
+        $("a#demo1").click(function(){
+            alert("Mouse Click");
+        })
+        $("a#demo2").mouserover(function(){
+            alert("Mouser Over");
+        })
+        $("a#demo3").mouserout(function(){
+            alert("Mouse Out");
+        })
+        })
+        $("a#demo4").click(function(){
+            $("#content").slideToggle();
+        })
+        });
+    </script>
+</head>
+<body>
+    <h1>Hello Every Body</h1>
+    <a href="#" id = "demo">Click</a> <br>
+    <a href="#" id = "demo1">when u click</a> <br>
+    <a href="#" id = "demo2">when ur mouse is over</a> <br>
+    <a href="#" id = "demo3"> when ir mouse is out</a> <br>
+    <h1>Test system effect</h1>
+    <a href ="#" id ="demo4">show</a> <br>
+    <div id ="content" style = "width: 400px; height: 250px; background-color: blueviolet;">show case</div>
+</body>
+</html>
