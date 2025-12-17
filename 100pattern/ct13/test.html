@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>แปลงค่าเงิน THB → USD</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 6px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>แปลงค่าเงิน THB → USD</h2>
+
+  <form id="currencyForm">
+    <label>
+      จำนวนเงิน (THB):
+      <input type="number" id="amountTHB" step="0.01" required />
+    </label>
+    <br /><br />
+
+    <label>
+      อัตราแลกเปลี่ยน (THB ต่อ 1 USD):
+      <input type="number" id="rate" value="35" step="0.01" required />
+    </label>
+    <br /><br />
+
+    <button type="submit">แปลงค่า</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const form = document.getElementById("currencyForm");
+    const resultDiv = document.getElementById("result");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const amountTHB = parseFloat(document.getElementById("amountTHB").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+
+      if (rate <= 0) {
+        resultDiv.textContent = "อัตราแลกเปลี่ยนต้องมากกว่า 0";
+        return;
+      }
+
+      const amountUSD = amountTHB / rate;
+
+      const thbFormatter = new Intl.NumberFormat("th-TH", {
+        style: "currency",
+        currency: "THB",
+      });
+
+      const usdFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
+
+      resultDiv.innerHTML = `
+        <div>THB: <strong>${thbFormatter.format(amountTHB)}</strong></div>
+        <div>USD: <strong>${usdFormatter.format(amountUSD)}</strong></div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
