@@ -24,4 +24,5 @@ class User3{
 }
 const u3 = new User3("Boob");
 console.log(u3.getFullname());
-console.log(u3.#fullname);
+// console.log(u3.#fullname); // ไม่สามารถคอลตัวแปลมาใช้งานได้
+
