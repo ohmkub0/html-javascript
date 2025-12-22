@@ -1,0 +1,1 @@
+export const greet = (fullname) => ('deekub ' + (fullname))

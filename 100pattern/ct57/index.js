@@ -1,0 +1,1 @@
+// ใช้ Chunking + Parallel Uploading สำหรับไฟล์ขนาดใหญ่
